@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using DNDUtils;
 
 namespace MainContainer
 {
     public partial class MainContainer : Form
     {
-        Random rng;
-        int dieRoll;
-        int forThefakes = 0;
+        DieGenerator dg = DieGenerator.getDieGenerator();
 
         public MainContainer()
         {
@@ -31,58 +31,85 @@ namespace MainContainer
 
         }
 
-        private void d6Button_Click(object sender, EventArgs e)
+        private void RollButton_Click(object sender, EventArgs e)
         {
-            rng = new Random();
-            dieRoll = rng.Next(1, 7);
-            //fake a one lulz
-            if(forThefakes == 0)
-            {
-                dieRoll = 1;
-                forThefakes++;
-            }
-            dicePictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            switch (dieRoll)
-            {
-                case 1:
-                    {
-                        dicePictureBox.Image = Properties.Resources.nat1;
-                        break;
-                    }
-                default :
-                    {
-                        MessageBox.Show("Transforming pizza to code... Please wait. \n "+ dieRoll+".", "The programmer made an oopsie", MessageBoxButtons.OK);
-                        break;
-                    }
-            }
-            dicePictureBox.Refresh();
-        }
+            Dice die;
+            Console.WriteLine(dieTypeComboBox.SelectedText);
+            int num;
+            bool isNumeric = int.TryParse(numberofdieTextBox.Text, out num);
 
-        private void d4Button_Click(object sender, EventArgs e)
-        {
-            rng = new Random();
-            dieRoll = rng.Next(1, 5);
-            //fake a one lulz
-            if (forThefakes == 0)
+            if (isNumeric == false )
             {
-                dieRoll = 1;
-                forThefakes++;
+                MessageBox.Show("Number must be a valid integer, will default to 1.");
+                numberofdieTextBox.Text = "1";
             }
-            dicePictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            switch (dieRoll)
+
+            switch (dieTypeComboBox.SelectedItem.ToString())
             {
-                case 1:
+                case "d4":
                     {
-                        dicePictureBox.Image = Properties.Resources.nat1;
+                        die = Dice.d4;
+                        break;
+                    }
+                case "d6":
+                    {
+                        die = Dice.d6;
+                        break;
+                    }
+                case "d8":
+                    {
+                        die = Dice.d8;
+                        break;
+                    }
+                case "d10":
+                    {
+                        die = Dice.d10;
+                        break;
+                    }
+                case "d12":
+                    {
+                        die = Dice.d12;
+                        break;
+                    }
+                case "d20":
+                    {
+                        die = Dice.d20;
+                        break;
+                    }
+                case "d100":
+                    {
+                        die = Dice.d100;
                         break;
                     }
                 default:
                     {
-                        MessageBox.Show("Transforming pizza to code... Please wait.", "The programmer made an oopsie", MessageBoxButtons.OK);
+                        die = Dice.d20;
                         break;
                     }
+
             }
-            dicePictureBox.Refresh();
+            dieRollTextBox.Text = dg.rollDie(Int32.Parse(numberofdieTextBox.Text), die);
+        }
+
+        private void setPortraitButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog fd = new OpenFileDialog())
+            {
+                fd.Title = "Load Character Image";
+
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        characterPictureBox.Image = Image.FromFile(fd.FileName);
+                        characterPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    } catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+            }
+
         }
     }
 }
