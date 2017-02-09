@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DNDUtils;
 
 namespace MainContainer
 {
     public partial class MainContainer : Form
     {
-        Random rng;
-        int dieRoll;
-        int forThefakes = 0;
+        DieGenerator dg = DieGenerator.getDieGenerator();
 
         public MainContainer()
         {
@@ -33,56 +32,57 @@ namespace MainContainer
 
         private void d6Button_Click(object sender, EventArgs e)
         {
-            rng = new Random();
-            dieRoll = rng.Next(1, 7);
-            //fake a one lulz
-            if(forThefakes == 0)
+            Dice die;
+            switch (dieTypeTextBox.Text)
             {
-                dieRoll = 1;
-                forThefakes++;
-            }
-            dicePictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            switch (dieRoll)
-            {
-                case 1:
+                case "d4":
                     {
-                        dicePictureBox.Image = Properties.Resources.nat1;
+                        die = Dice.d4;
                         break;
                     }
-                default :
+                case "d6":
                     {
-                        MessageBox.Show("Transforming pizza to code... Please wait. \n "+ dieRoll+".", "The programmer made an oopsie", MessageBoxButtons.OK);
+                        die = Dice.d6;
                         break;
                     }
-            }
-            dicePictureBox.Refresh();
-        }
-
-        private void d4Button_Click(object sender, EventArgs e)
-        {
-            rng = new Random();
-            dieRoll = rng.Next(1, 5);
-            //fake a one lulz
-            if (forThefakes == 0)
-            {
-                dieRoll = 1;
-                forThefakes++;
-            }
-            dicePictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            switch (dieRoll)
-            {
-                case 1:
+                case "d8":
                     {
-                        dicePictureBox.Image = Properties.Resources.nat1;
+                        die = Dice.d8;
+                        break;
+                    }
+                case "d10":
+                    {
+                        die = Dice.d10;
+                        break;
+                    }
+                case "d12":
+                    {
+                        die = Dice.d12;
+                        break;
+                    }
+                case "d20":
+                    {
+                        die = Dice.d20;
+                        break;
+                    }
+                case "d100":
+                    {
+                        die = Dice.d100;
                         break;
                     }
                 default:
                     {
-                        MessageBox.Show("Transforming pizza to code... Please wait.", "The programmer made an oopsie", MessageBoxButtons.OK);
+                        die = Dice.d20;
                         break;
                     }
+
             }
-            dicePictureBox.Refresh();
+            dieRollTextBox.Text = dg.rollDie(Int32.Parse(numberofdieTextBox.Text), die);
+        }
+
+        private void dieTypeLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

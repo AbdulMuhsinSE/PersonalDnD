@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utils\AlmostTrueRandomness.cs" />
+    <Compile Include="Utils\Dice.cs" />
+    <Compile Include="Utils\DieGenerator.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

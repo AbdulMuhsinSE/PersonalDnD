@@ -30,7 +30,9 @@
         {
             this.PagedControls = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.d6Button = new System.Windows.Forms.Button();
+            this.dieTypeLabel = new System.Windows.Forms.Label();
+            this.dieRollTextBox = new System.Windows.Forms.RichTextBox();
+            this.rollButton = new System.Windows.Forms.Button();
             this.dicePictureBox = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
@@ -44,7 +46,9 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.d4Button = new System.Windows.Forms.Button();
+            this.dieTypeTextBox = new System.Windows.Forms.TextBox();
+            this.numberofdieTextBox = new System.Windows.Forms.TextBox();
+            this.numberofdieLabel = new System.Windows.Forms.Label();
             this.PagedControls.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dicePictureBox)).BeginInit();
@@ -65,8 +69,12 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.d4Button);
-            this.tabPage1.Controls.Add(this.d6Button);
+            this.tabPage1.Controls.Add(this.numberofdieLabel);
+            this.tabPage1.Controls.Add(this.numberofdieTextBox);
+            this.tabPage1.Controls.Add(this.dieTypeTextBox);
+            this.tabPage1.Controls.Add(this.dieTypeLabel);
+            this.tabPage1.Controls.Add(this.dieRollTextBox);
+            this.tabPage1.Controls.Add(this.rollButton);
             this.tabPage1.Controls.Add(this.dicePictureBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -76,20 +84,41 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // d6Button
+            // dieTypeLabel
             // 
-            this.d6Button.Location = new System.Drawing.Point(357, 102);
-            this.d6Button.Name = "d6Button";
-            this.d6Button.Size = new System.Drawing.Size(75, 23);
-            this.d6Button.TabIndex = 1;
-            this.d6Button.Text = "d6";
-            this.d6Button.UseVisualStyleBackColor = true;
-            this.d6Button.Click += new System.EventHandler(this.d6Button_Click);
+            this.dieTypeLabel.AutoSize = true;
+            this.dieTypeLabel.Location = new System.Drawing.Point(323, 91);
+            this.dieTypeLabel.Name = "dieTypeLabel";
+            this.dieTypeLabel.Size = new System.Drawing.Size(50, 13);
+            this.dieTypeLabel.TabIndex = 4;
+            this.dieTypeLabel.Text = "Die Type";
+            this.dieTypeLabel.Click += new System.EventHandler(this.dieTypeLabel_Click);
+            // 
+            // dieRollTextBox
+            // 
+            this.dieRollTextBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dieRollTextBox.Enabled = false;
+            this.dieRollTextBox.Location = new System.Drawing.Point(463, 157);
+            this.dieRollTextBox.Name = "dieRollTextBox";
+            this.dieRollTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.dieRollTextBox.Size = new System.Drawing.Size(244, 96);
+            this.dieRollTextBox.TabIndex = 3;
+            this.dieRollTextBox.Text = "";
+            // 
+            // rollButton
+            // 
+            this.rollButton.Location = new System.Drawing.Point(463, 107);
+            this.rollButton.Name = "rollButton";
+            this.rollButton.Size = new System.Drawing.Size(244, 33);
+            this.rollButton.TabIndex = 1;
+            this.rollButton.Text = "Roll";
+            this.rollButton.UseVisualStyleBackColor = true;
+            this.rollButton.Click += new System.EventHandler(this.d6Button_Click);
             // 
             // dicePictureBox
             // 
             this.dicePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dicePictureBox.Location = new System.Drawing.Point(438, 70);
+            this.dicePictureBox.Location = new System.Drawing.Point(8, 57);
             this.dicePictureBox.Name = "dicePictureBox";
             this.dicePictureBox.Size = new System.Drawing.Size(244, 259);
             this.dicePictureBox.TabIndex = 0;
@@ -187,15 +216,28 @@
             this.addTabToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.addTabToolStripMenuItem.Text = "Manage Tabs";
             // 
-            // d4Button
+            // dieTypeTextBox
             // 
-            this.d4Button.Location = new System.Drawing.Point(357, 73);
-            this.d4Button.Name = "d4Button";
-            this.d4Button.Size = new System.Drawing.Size(75, 23);
-            this.d4Button.TabIndex = 2;
-            this.d4Button.Text = "d4";
-            this.d4Button.UseVisualStyleBackColor = true;
-            this.d4Button.Click += new System.EventHandler(this.d4Button_Click);
+            this.dieTypeTextBox.Location = new System.Drawing.Point(326, 114);
+            this.dieTypeTextBox.Name = "dieTypeTextBox";
+            this.dieTypeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.dieTypeTextBox.TabIndex = 5;
+            // 
+            // numberofdieTextBox
+            // 
+            this.numberofdieTextBox.Location = new System.Drawing.Point(326, 157);
+            this.numberofdieTextBox.Name = "numberofdieTextBox";
+            this.numberofdieTextBox.Size = new System.Drawing.Size(100, 20);
+            this.numberofdieTextBox.TabIndex = 6;
+            // 
+            // numberofdieLabel
+            // 
+            this.numberofdieLabel.AutoSize = true;
+            this.numberofdieLabel.Location = new System.Drawing.Point(323, 141);
+            this.numberofdieLabel.Name = "numberofdieLabel";
+            this.numberofdieLabel.Size = new System.Drawing.Size(75, 13);
+            this.numberofdieLabel.TabIndex = 7;
+            this.numberofdieLabel.Text = "Number of Die";
             // 
             // MainContainer
             // 
@@ -209,6 +251,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PagedControls.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dicePictureBox)).EndInit();
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
@@ -226,7 +269,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.Button d6Button;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem1;
@@ -234,7 +276,12 @@
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tabsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addTabToolStripMenuItem;
-        private System.Windows.Forms.Button d4Button;
+        private System.Windows.Forms.RichTextBox dieRollTextBox;
+        private System.Windows.Forms.Button rollButton;
+        private System.Windows.Forms.Label dieTypeLabel;
+        private System.Windows.Forms.TextBox numberofdieTextBox;
+        private System.Windows.Forms.TextBox dieTypeTextBox;
+        private System.Windows.Forms.Label numberofdieLabel;
     }
 }
 
