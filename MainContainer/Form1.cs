@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using DNDUtils;
 
 namespace MainContainer
@@ -30,10 +31,20 @@ namespace MainContainer
 
         }
 
-        private void d6Button_Click(object sender, EventArgs e)
+        private void RollButton_Click(object sender, EventArgs e)
         {
             Dice die;
-            switch (dieTypeTextBox.Text)
+            Console.WriteLine(dieTypeComboBox.SelectedText);
+            int num;
+            bool isNumeric = int.TryParse(numberofdieTextBox.Text, out num);
+
+            if (isNumeric == false )
+            {
+                MessageBox.Show("Number must be a valid integer, will default to 1.");
+                numberofdieTextBox.Text = "1";
+            }
+
+            switch (dieTypeComboBox.SelectedItem.ToString())
             {
                 case "d4":
                     {
@@ -80,8 +91,24 @@ namespace MainContainer
             dieRollTextBox.Text = dg.rollDie(Int32.Parse(numberofdieTextBox.Text), die);
         }
 
-        private void dieTypeLabel_Click(object sender, EventArgs e)
+        private void setPortraitButton_Click(object sender, EventArgs e)
         {
+            using (OpenFileDialog fd = new OpenFileDialog())
+            {
+                fd.Title = "Load Character Image";
+
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        characterPictureBox.Image = Image.FromFile(fd.FileName);
+                        characterPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                    } catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+            }
 
         }
     }
