@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModel\Attribute.cs" />
+    <Compile Include="DataModel\DnDClass.cs" />
+    <Compile Include="DataModel\Features.cs" />
+    <Compile Include="DataModel\Items.cs" />
+    <Compile Include="DataModel\NullableBoolean.cs" />
     <Compile Include="Utils\AlmostTrueRandomness.cs" />
     <Compile Include="Utils\Dice.cs" />
     <Compile Include="Utils\DieGenerator.cs" />
