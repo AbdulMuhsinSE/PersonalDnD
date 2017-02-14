@@ -1,4 +1,4 @@
-﻿namespace DNDUtils
+﻿namespace MainContainer.Utils
 {
     public enum Dice
     {

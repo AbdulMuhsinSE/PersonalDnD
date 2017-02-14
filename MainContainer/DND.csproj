@@ -46,6 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModel\Armor.cs" />
+    <Compile Include="DataModel\Attribute.cs" />
+    <Compile Include="DataModel\DamageType.cs" />
+    <Compile Include="DataModel\DnDClass.cs" />
+    <Compile Include="DataModel\Features.cs" />
+    <Compile Include="DataModel\Items.cs" />
+    <Compile Include="DataModel\NullableBoolean.cs" />
+    <Compile Include="DataModel\Item.cs" />
+    <Compile Include="Exceptions\OverBurdendException.cs" />
+    <Compile Include="DataModel\Weapon.cs" />
+    <Compile Include="DataModel\ItemPack.cs" />
+    <Compile Include="DataModel\LifeStyle.cs" />
+    <Compile Include="DataModel\Mount.cs" />
     <Compile Include="Utils\AlmostTrueRandomness.cs" />
     <Compile Include="Utils\Dice.cs" />
     <Compile Include="Utils\DieGenerator.cs" />
@@ -70,6 +83,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
