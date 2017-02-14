@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using DNDUtils;
+using MainContainer.Utils;
 
 namespace MainContainer
 {
@@ -103,7 +103,7 @@ namespace MainContainer
                     {
                         characterPictureBox.Image = Image.FromFile(fd.FileName);
                         characterPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    } catch (Exception ex)
+                    } catch (System.Exception ex)
                     {
                         MessageBox.Show(ex.ToString());
                     }

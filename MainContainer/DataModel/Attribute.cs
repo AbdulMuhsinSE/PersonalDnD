@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainContainer.DataModel
+namespace MainContainer.Exception
 {
     public enum Attribute
     {

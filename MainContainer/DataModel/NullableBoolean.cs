@@ -10,9 +10,9 @@ using System.Threading.Tasks;
  * https://msdn.microsoft.com/en-us/library/aa664483(v=vs.71).aspx
  */
 
-namespace MainContainer.DataModel
+namespace MainContainer.Exception
 {
-    class NullableBoolean
+    public class NullableBoolean
     {
         public static readonly NullableBoolean Null = new NullableBoolean(0);
         public static readonly NullableBoolean Negative = new NullableBoolean(-1);
@@ -56,9 +56,29 @@ namespace MainContainer.DataModel
             return x.value == y.value ? true : false;
         }
 
+        public static bool operator ==(NullableBoolean x, bool y)
+        {
+            return (bool)x == y;
+        }
+
+        public static bool operator ==(bool y, NullableBoolean x)
+        {
+            return (bool)x == y;
+        }
+
         public static bool operator !=(NullableBoolean x, NullableBoolean y)
         {
             return x.value != y.value ? true : false;
+        }
+
+        public static bool operator !=(NullableBoolean x, bool y)
+        {
+            return (bool)x == y;
+        }
+
+        public static bool operator !=(bool y, NullableBoolean x)
+        {
+            return (bool)x == y;
         }
 
         public static NullableBoolean operator !(NullableBoolean x)

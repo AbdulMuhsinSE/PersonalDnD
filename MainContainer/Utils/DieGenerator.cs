@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Security.Cryptography;
 using System.Linq;
 
-namespace DNDUtils {
+namespace MainContainer.Utils
+{
     public class DieGenerator
     {
         AlmostTrueRandomness random;

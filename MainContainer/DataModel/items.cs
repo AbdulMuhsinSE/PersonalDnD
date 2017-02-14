@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace MainContainer.DataModel
+namespace MainContainer.Exception
 {
-    class Items
+    public class DeprecatedItems
     {
         string name;
         string description;
@@ -11,7 +11,7 @@ namespace MainContainer.DataModel
         int hpEffectValue;
         int val; // val of 0 means the item cannot be sold. val of 1 = 1cp
 
-        public Items(string name, string description)
+        public DeprecatedItems(string name, string description)
         {
             this.name = name;
             this.description = description;
@@ -21,7 +21,7 @@ namespace MainContainer.DataModel
             this.hpEffectValue = 0;
         }
 
-        public Items(string name, string description, bool consumable, NullableBoolean hpEffect, int hpEffectValue, int val)
+        public DeprecatedItems(string name, string description, bool consumable, NullableBoolean hpEffect, int hpEffectValue, int val)
         {
             this.name = name;
             this.description = description;
@@ -70,7 +70,7 @@ namespace MainContainer.DataModel
             }
         }
 
-        internal NullableBoolean HpEffect
+        public NullableBoolean HpEffect
         {
             get
             {

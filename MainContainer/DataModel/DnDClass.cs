@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainContainer.DataModel
+namespace MainContainer.Exception
 {
-    class DnDClass
+    public class DnDClass
     {
-        Tuple<int, DNDUtils.Dice> hitDice;
+        Tuple<int, MainContainer.Utils.Dice> hitDice;
         Tuple<int, Attribute> hp1stLevel;
-        Tuple<DNDUtils.Dice, Attribute> hpHigherLevel;
+        Tuple<MainContainer.Utils.Dice, Attribute> hpHigherLevel;
 
         /********************************************
          **INCOMPLETE********************************

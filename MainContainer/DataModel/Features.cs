@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainContainer.DataModel
+namespace MainContainer.Exception
 {
-    class Features
+    public class Features
     {
         string description;
         string type;
