@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainContainer.Exception
+namespace MainContainer.DataModel
 {
     public enum DamageType
     {

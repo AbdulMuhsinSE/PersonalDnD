@@ -10,7 +10,7 @@ using System.Threading.Tasks;
  * https://msdn.microsoft.com/en-us/library/aa664483(v=vs.71).aspx
  */
 
-namespace MainContainer.Exception
+namespace MainContainer.DataModel
 {
     public class NullableBoolean
     {

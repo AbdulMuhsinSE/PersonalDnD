@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainContainer.Exception
+namespace MainContainer.DataModel
 {
-    public enum Attribute
+    public enum AbilityScoreTypes
     {
         STR = 0,
         DEX = 1,

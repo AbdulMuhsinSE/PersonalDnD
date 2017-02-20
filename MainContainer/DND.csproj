@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModel\Armor.cs" />
-    <Compile Include="DataModel\Attribute.cs" />
+    <Compile Include="DataModel\AbilityScoreTypes.cs" />
+    <Compile Include="DataModel\Alignment.cs" />
+    <Compile Include="DataModel\Size.cs" />
+    <Compile Include="DataModel\Creature.cs" />
     <Compile Include="DataModel\DamageType.cs" />
     <Compile Include="DataModel\DnDClass.cs" />
     <Compile Include="DataModel\Features.cs" />
@@ -93,12 +96,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="DataModel\Sense.cs" />
+    <Compile Include="Utils\DieFormula.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nat1.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DataModel\DataFiles\Languages.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
