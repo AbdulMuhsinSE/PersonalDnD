@@ -37,5 +37,31 @@ namespace MainContainer.Utils
             toReturn += " for a total of " + rolls.Sum();
             return toReturn;
         }
+
+		public String rollDie(DieFormula df)
+		{
+			int[] rolls = new int[df.NumberOfDie];
+			for (int i = 0; i < rolls.Length; i++)
+			{
+				rolls[i] = random.Next(1, ((int)df.Die) + 1);
+			}
+			String toReturn = "Your rolls are";
+			foreach (int roll in rolls)
+			{
+				toReturn += " " + roll + ",";
+			}
+			toReturn += " for a total of " + rolls.Sum() + "mod: " + df.NumToAdd;
+			return toReturn;
+		}
+
+		public int rollDieInt(DieFormula df)
+		{
+			int[] rolls = new int[df.NumberOfDie];
+			for (int i = 0; i < rolls.Length; i++)
+			{
+				rolls[i] = random.Next(1, ((int)df.Die) + 1);
+			}
+			return rolls.Sum() + df.NumToAdd;;
+		}
     }
 }

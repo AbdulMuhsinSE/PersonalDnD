@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MainContainer.Utils;
 
-namespace MainContainer.Exception
+namespace MainContainer.DataModel
 {
     public class Weapon:Item
     {
@@ -23,7 +23,6 @@ namespace MainContainer.Exception
         DamageType damageType;
         Tuple<int, Dice> damageDice;
         Tuple<int, Dice> versatileDamageDice;
-        int weight;
         bool usable;
 
         public int Type
@@ -126,19 +125,6 @@ namespace MainContainer.Exception
             }
         }
 
-        public int Weight
-        {
-            get
-            {
-                return weight;
-            }
-
-            set
-            {
-                weight = value;
-            }
-        }
-
         public bool Usable
         {
             get
@@ -164,7 +150,7 @@ namespace MainContainer.Exception
             this.damageType = damageType;
             this.damageDice = damageDice;
             this.versatileDamageDice = versatileDamageDice;
-            this.weight = weight;
+            this.Weight = weight;
             this.usable = true;
         }
 
