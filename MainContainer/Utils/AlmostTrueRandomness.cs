@@ -5,14 +5,15 @@ namespace MainContainer.Utils
 {
     class AlmostTrueRandomness : Random
     {
-        RNGCryptoServiceProvider random = new RNGCryptoServiceProvider();
+		//changed to .Net Core implementation
+		RandomNumberGenerator random = RandomNumberGenerator.Create();
         private byte[] _uint32Buffer = new byte[4];
 
         public override Int32 Next(Int32 minValue, Int32 maxValue)
         {
             if (minValue > maxValue)
             {
-                throw new ArgumentOutOfRangeException("minValue");
+                throw new ArgumentOutOfRangeException(nameof(minValue));
             }
 
             if (minValue == maxValue) { return minValue; }

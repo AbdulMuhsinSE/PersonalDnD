@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 
-namespace MainContainer.Exception
+namespace MainContainer.DataModel
 {
     public class Armor:Item
     {
@@ -22,8 +22,6 @@ namespace MainContainer.Exception
         bool usable;
         int strRequirement;
         bool stealthDisadvantage;
-        // default in lbs.
-        int weight;
         List<Features> bonus;
 
        
@@ -39,7 +37,7 @@ namespace MainContainer.Exception
             this.usable = true;
             this.strRequirement = strRequirement;
             this.stealthDisadvantage = stealthDisadvantage;
-            this.weight = weight;
+            this.Weight = weight;
             this.bonus = bonus;
         }
 
@@ -121,18 +119,6 @@ namespace MainContainer.Exception
             }
         }
 
-        public int Weight
-        {
-            get
-            {
-                return weight;
-            }
-
-            set
-            {
-                weight = value;
-            }
-        }
 
         public List<Features> Bonus
         {

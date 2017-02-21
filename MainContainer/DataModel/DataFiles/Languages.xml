@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<languages>
+  <standard id="a">
+    <common id="0">
+      <name>Common</name>
+      <typical>Humans</typical>
+      <script>Common</script>
+    </common>
+    <dwarvish id="1">
+      <name>Dwarvish</name>
+      <typical>Dwarves</typical>
+      <script>Dwarvish</script>
+    </dwarvish>
+    <elvish>
+      <name>Elvish</name>
+      <typical>Elves</typical>
+      <script>Elvish</script>
+    </elvish>
+    <giant>
+      <name>Giant</name>
+      <typical>Ogres, Giants</typical>
+      <script>Dwarvish</script>
+    </giant>
+    <gnomish>
+      <name>Gnomis</name>
+      <typical>Gnomes</typical>
+      <script>Dwarvish</script>
+    </gnomish>
+    <goblin>
+      <name>Goblin</name>
+      <typical>Goblinoids</typical>
+      <script>Dwarvish</script>
+    </goblin>
+    <halfling>
+      <name>Halfling</name>
+      <typical>Halflings</typical>
+      <script>Common</script>
+    </halfling>
+  </standard>
+  <exotic id="b"></exotic>
+  <secret id="c"></secret>
+</languages>

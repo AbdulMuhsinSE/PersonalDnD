@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MainContainer.Exception
+namespace MainContainer.DataModel
 {
     public class DeprecatedItems
     {
